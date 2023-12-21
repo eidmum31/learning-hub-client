@@ -4,10 +4,11 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Header from "../pages/shared/Header/Header";
+import MainLayout from "../layout/MainLayout";
 const router = createBrowserRouter([
     {
       path: "/",
-      element: <Header></Header>,
+      element: <MainLayout></MainLayout>,
     },
   ]);
   export default router;

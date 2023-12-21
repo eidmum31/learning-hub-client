@@ -1,10 +1,11 @@
 import React from 'react';
 import { Button, Container, Nav, NavDropdown, Navbar } from 'react-bootstrap';
 import learning from "../../../assets/learning.png";
+import { Link } from 'react-router-dom';
 const Header = () => {
     return (
-        <Container className='bg-light rounded'>
-            <Navbar collapseOnSelect expand="lg">
+       
+            <Navbar className='container' collapseOnSelect expand="lg" fixed='top'  data-bs-theme="dark" bg='dark'>
                 <Container>
                     <Navbar.Brand href="#home" className='mx-auto'>
                         
@@ -14,10 +15,10 @@ const Header = () => {
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
-                        <Nav>
-                            <Nav.Link href="#features">Courses</Nav.Link>
-                            <Nav.Link href="#pricing">FAQ</Nav.Link>
-                            <Nav.Link href="#pricing">Blog</Nav.Link>
+                        <Nav className=''>
+                            <Link className='text-decoration-none ms-lg-5 text-light'>Courses</Link>
+                            <Link className='text-decoration-none mx-lg-3 text-light'>FAQ</Link>
+                            <Link className='text-decoration-none text-light'>Blog</Link>
                         </Nav>
                         <Nav className='ms-auto'>
                         <Button variant="warning">Login</Button>
@@ -25,7 +26,7 @@ const Header = () => {
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
-        </Container>
+       
     );
 };
 

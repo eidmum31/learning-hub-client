@@ -14,7 +14,7 @@ const TopNav = () => {
 
             <div className='text-center'>
                 {
-                    categories.map(category => <Button className='m-2' key={category.category_id} variant="light">{category.category}</Button>)
+                    categories.map(category =><Link className='m-2' key={category.category_id} to={`/category/${category.category_id}`}><Button className='mt-2' variant="secondary">{category.category}</Button></Link> )
                 }
             </div>
 

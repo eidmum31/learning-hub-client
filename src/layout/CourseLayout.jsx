@@ -15,6 +15,7 @@ const CourseLayout = () => {
             <Header></Header>
             <Banner></Banner>
             <TopNav></TopNav>
+            <Outlet></Outlet>
            
            </>
 

@@ -14,7 +14,7 @@ const ChoiceCard = ({category}) => {
                     <Card.Text>
                         {category.details}
                     </Card.Text>
-                    <Link><Button variant="secondary">View Courses</Button></Link>
+                    <Link to={`/category/${category.category_id}`}><Button variant="secondary">View Courses</Button></Link>
                 </Card.Body>
             </Card>
         </Col>

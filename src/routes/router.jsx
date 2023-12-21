@@ -34,13 +34,15 @@ const router = createBrowserRouter([
         children:[
             {
                 path:'/category',
-                element:<h1>heeloooooooooooo</h1>
+                element:<Category></Category>,
+                loader:()=>fetch(`http://127.0.0.1:8080/category/0`)
             }
             ,
 
             {
                 path:"/category/:id",
-                element:<Category></Category>
+                element:<Category></Category>,
+                loader:({params})=>fetch(`http://127.0.0.1:8080/category/${params.id}`)
             }
         ]
     }

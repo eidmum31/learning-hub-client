@@ -9,7 +9,7 @@ const Header = () => {
                 <Container>
                     <Navbar.Brand href="#home" className='mx-auto d-flex align-items-center' style={{height:"100px",fontSize:"25px"}}>
                         
-                        <img style={{height:"30px",}} src={learning}>
+                        <img style={{height:"50px",}} src={learning}>
                         </img>
                         Learning Hub 
                     </Navbar.Brand>

@@ -5,9 +5,9 @@ import { FaSearch } from "react-icons/fa";
 import banner from "../../../assets/online-course.png";
 const Banner = () => {
     return (
-        <Container className='bg-secondary p-5 rounded mt-5'>
+        <Container className='bg-secondary p-5' style={{marginTop:"100px"}}>
             <Row>
-                <Col md={6} className='w-50 mx-auto'>
+                <Col md={6} className='w-50 mx-auto p-5'>
                     <h2 >Learn more and make success the result of perfection.</h2>
                     <h4 className='text-light mt-3'>Pick from over 100,000 online video courses with new additions published every month.</h4>
                     <div>

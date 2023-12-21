@@ -7,7 +7,7 @@ const Header = () => {
        
             <Navbar className='container' collapseOnSelect expand="lg" fixed='top'  data-bs-theme="dark" bg='dark'>
                 <Container>
-                    <Navbar.Brand href="#home" className='mx-auto'>
+                    <Navbar.Brand href="#home" className='mx-auto d-flex align-items-center' style={{height:"100px",fontSize:"25px"}}>
                         
                         <img style={{height:"30px",}} src={learning}>
                         </img>
@@ -15,8 +15,9 @@ const Header = () => {
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
-                        <Nav className=''>
-                            <Link className='text-decoration-none ms-lg-5 text-light'>Courses</Link>
+                        <Nav className='' style={{fontSize:"25px"}}>
+                            <Link to={'/'} className='text-decoration-none ms-lg-5 text-light'>Home</Link>
+                            <Link to={'/category/0'} className='text-decoration-none ms-lg-3 text-light'>Courses</Link>
                             <Link className='text-decoration-none mx-lg-3 text-light'>FAQ</Link>
                             <Link className='text-decoration-none text-light'>Blog</Link>
                         </Nav>

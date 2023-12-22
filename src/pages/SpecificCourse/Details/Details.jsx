@@ -1,16 +1,22 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Button, Card, Col, Container, Row } from 'react-bootstrap';
 import { FaClock, FaEye, FaRegStar, FaPlay, FaBook, FaFacebook, FaLinkedinIn, FaRedditAlien } from 'react-icons/fa';
 import { Link, useLoaderData } from 'react-router-dom';
 import { FaComputer, FaSquareTwitter, FaSquareWhatsapp, FaSquareYoutube } from "react-icons/fa6";
+import generatePDF from 'react-to-pdf';
 const Details = () => {
     const specificCourse = useLoaderData();
     console.log(specificCourse);
+    const targetRef = useRef();
     return (
-        <Container style={{ marginTop: "115px" }}>
+        
+        <Container ref={targetRef} style={{ marginTop: "115px" }}>
             <Row className='bg-secondary text-light p-4'>
                 <Col lg={7}>
-                    <h2>{specificCourse.course_name}</h2>
+                    
+                       <h2>{specificCourse.course_name}</h2>
+                      
+                    
                     <h5 className=''>{specificCourse.details}</h5>
                     <div className='d-flex'>
                         <div className='d-flex align-items-center me-2'>
@@ -29,7 +35,10 @@ const Details = () => {
                             <FaPlay style={{ fontSize: "15px" }} />
                             <span className='ms-2'>{specificCourse.lessons} Lessions</span>
                         </div>
+                        <br></br>
+                        
                     </div>
+                    <Button className='mt-3' onClick={() => generatePDF(targetRef, {filename: 'page.pdf'})} variant="light">Download pdf</Button>
                 </Col>
                 <Col lg={5}>
                     <Card style={{ width: '60%', boxShadow: "0px 0px 10px grey" }}>

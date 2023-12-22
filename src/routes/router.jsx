@@ -12,6 +12,8 @@ import Course from "../pages/Course/Category/Category";
 import CourseLayout from "../layout/CourseLayout";
 import Category from "../pages/Course/Category/Category";
 import Banner from "../pages/shared/Banner/Banner";
+import SpecificCourseLayout from "../layout/SpecificCourseLayout";
+import Details from "../pages/SpecificCourse/Details/Details";
 const router = createBrowserRouter([
     {
       path: "/",
@@ -43,8 +45,20 @@ const router = createBrowserRouter([
                 path:"/category/:id",
                 element:<Category></Category>,
                 loader:({params})=>fetch(`http://127.0.0.1:8080/category/${params.id}`)
-            }
+            },
+      
         ]
+    },
+    {
+      path:"/course",
+      element:<SpecificCourseLayout></SpecificCourseLayout>,
+      children:[
+        {
+          path:'/course/:id',
+          element:<Details></Details>,
+          loader:({params})=>fetch(`http://127.0.0.1:8080/course/${params.id}`)
+        }
+      ]
     }
   ]);
   export default router;

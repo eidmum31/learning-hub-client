@@ -22,9 +22,9 @@ const CategoryCard = ({course}) => {
                 <Card.Body>
                     <Card.Title>{course.course_name}</Card.Title>
                     <Card.Text>
-                        Some quick example and descriptipn of the course. Also the rating, viewed status are shown in the body.
+                        {course.details}
                     </Card.Text>
-                    <Link><Button variant="primary">Buy Now ${course.price}</Button></Link>
+                    <Link><Button variant="primary">View Course</Button></Link>
                     <div>
 
                     </div>

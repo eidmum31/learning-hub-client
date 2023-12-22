@@ -14,6 +14,8 @@ import Category from "../pages/Course/Category/Category";
 import Banner from "../pages/shared/Banner/Banner";
 import SpecificCourseLayout from "../layout/SpecificCourseLayout";
 import Details from "../pages/SpecificCourse/Details/Details";
+import Login from "../pages/Login/Login";
+import Reg from "../pages/Reg/Reg";
 const router = createBrowserRouter([
     {
       path: "/",
@@ -26,6 +28,14 @@ const router = createBrowserRouter([
              <Choices></Choices>
             
             </>
+        },
+        {
+          path:"/login",
+          element:<Login></Login>
+        },
+        {
+          path:"/reg",
+          element:<Reg></Reg>
         }
   
       ]

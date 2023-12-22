@@ -38,10 +38,10 @@ const Details = () => {
                         <br></br>
                         
                     </div>
-                    <Button className='mt-3' onClick={() => generatePDF(targetRef, {filename: 'page.pdf'})} variant="light">Download pdf</Button>
+                    <Button className='my-3' onClick={() => generatePDF(targetRef, {filename: 'page.pdf'})} variant="light">Download pdf</Button>
                 </Col>
                 <Col lg={5}>
-                    <Card style={{ width: '60%', boxShadow: "0px 0px 10px grey" }}>
+                    <Card style={{ width: '65%', boxShadow: "0px 0px 10px grey" }}>
                         <Card.Img style={{ width: "95%", margin: "5px auto" }} variant="top" src={specificCourse.image} />
                         <Card.Body>
 

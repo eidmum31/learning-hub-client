@@ -16,6 +16,7 @@ import SpecificCourseLayout from "../layout/SpecificCourseLayout";
 import Details from "../pages/SpecificCourse/Details/Details";
 import Login from "../pages/Login/Login";
 import Reg from "../pages/Reg/Reg";
+import CheckoutLayout from "../layout/checkoutLayout";
 const router = createBrowserRouter([
     {
       path: "/",
@@ -69,6 +70,10 @@ const router = createBrowserRouter([
           loader:({params})=>fetch(`http://127.0.0.1:8080/course/${params.id}`)
         }
       ]
+    },
+    {
+      path:'/checkout',
+      element:<CheckoutLayout></CheckoutLayout>
     }
   ]);
   export default router;

@@ -1,13 +1,21 @@
 import React, { useRef } from 'react';
 import { Button, Card, Col, Container, Row } from 'react-bootstrap';
 import { FaClock, FaEye, FaRegStar, FaPlay, FaBook, FaFacebook, FaLinkedinIn, FaRedditAlien } from 'react-icons/fa';
-import { Link, useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData, useNavigate } from 'react-router-dom';
 import { FaComputer, FaSquareTwitter, FaSquareWhatsapp, FaSquareYoutube } from "react-icons/fa6";
 import generatePDF from 'react-to-pdf';
 const Details = () => {
     const specificCourse = useLoaderData();
+    const navigate=useNavigate();
     console.log(specificCourse);
     const targetRef = useRef();
+    const addCourse=()=>{
+        const previousCoursesString=localStorage.getItem('courses') || JSON.stringify([]);
+        const previousCourses=JSON.parse(previousCoursesString);
+        previousCourses.push(specificCourse);
+        localStorage.setItem('courses',JSON.stringify(previousCourses));
+        navigate('/checkout');
+    }
     return (
         
         <Container ref={targetRef} style={{ marginTop: "115px" }}>
@@ -46,7 +54,7 @@ const Details = () => {
                         <Card.Body>
 
                             <Card.Title style={{ textAlign: "center", fontSize: "35px", fontWeight: "bold" }}>${specificCourse.price}</Card.Title>
-                            <Link><Button style={{ width: "100%" }} variant="warning">Buy Now</Button></Link>
+                            <Link ><Button onClick={addCourse} style={{ width: "100%" }} variant="warning">Get Premium Access</Button></Link>
 
                             <h5 className='mt-4'>This course includes</h5>
                             <p><FaBook className='me-3' /><span> Language - English</span></p>

@@ -5,6 +5,7 @@ import Choices from '../pages/Home/Choices/Choices';
 import { Outlet } from 'react-router-dom';
 
 const MainLayout = () => {
+    
     return (
         <div>
             <Header></Header>

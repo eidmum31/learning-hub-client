@@ -10,14 +10,14 @@ const Login = () => {
             <Form className='w-50 mx-auto'>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" placeholder="Enter your email address" />
+                    <Form.Control type="email" placeholder="Enter your email address" required/>
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Enter your password" />
+                    <Form.Control type="password" placeholder="Enter your password" required/>
                 </Form.Group>
-                <Button variant="primary" type="submit">
+                <Button className='w-100' variant="primary" type="submit">
                     Login
                 </Button>
             </Form>
@@ -29,7 +29,7 @@ const Login = () => {
                     <Button style={{ width: "90%" }} variant="outline-secondary"><FaGithub className='me-2' />Github</Button>
                 </Col>
             </Row>
-            <p className='text-center mt-3'>Already have an account? <Link to={`/reg`}>Register</Link></p>
+            <p className='text-center mt-3'>Don't have an account? <Link to={`/reg`}>Register</Link></p>
                 
             
         </Container>

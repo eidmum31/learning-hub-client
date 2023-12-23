@@ -24,7 +24,7 @@ const CategoryCard = ({course}) => {
                     <Card.Text>
                         {course.details}
                     </Card.Text>
-                    <Link><Button variant="primary">View Course</Button></Link>
+                    <Link to={`/course/${course.id}`}><Button variant="primary">View Course</Button></Link>
                     <div>
 
                     </div>

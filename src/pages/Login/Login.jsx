@@ -8,9 +8,9 @@ import 'react-toastify/dist/ReactToastify.css';
 const Login = () => {
     const [error, setError] = useState(null);
     const [success, setSuccess] = useState(null);
-    const { loginUser, user } = useContext(AuthContext);
+    const { loginUser, user, loading,logOut } = useContext(AuthContext);
     const location = useLocation();
-    const dest = location?.state || `/category/0`;
+    const dest = location?.state || `/`;
     const navigate = useNavigate();
     const handleLogin = (event) => {
         event.preventDefault();
@@ -20,19 +20,26 @@ const Login = () => {
         const password = form.password.value;
         loginUser(email, password)
             .then(u => {
-                console.log(u.user);
-                
-                if (u.user.emailVerified)
+
+                if (u.user.emailVerified) {
+                    
                     navigate(dest);
+                }
                 else {
+                    logOut();
                     toast("Please verify your email");
                 }
+
 
             })
             .catch(err => {
                 console.log(err);
                 setError(err);
             })
+
+       
+            
+       
         form.reset();
     }
     return (

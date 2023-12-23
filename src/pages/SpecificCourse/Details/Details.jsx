@@ -6,16 +6,10 @@ import { FaComputer, FaSquareTwitter, FaSquareWhatsapp, FaSquareYoutube } from "
 import generatePDF from 'react-to-pdf';
 const Details = () => {
     const specificCourse = useLoaderData();
-    const navigate=useNavigate();
+    
     console.log(specificCourse);
     const targetRef = useRef();
-    const addCourse=()=>{
-        const previousCoursesString=localStorage.getItem('courses') || JSON.stringify([]);
-        const previousCourses=JSON.parse(previousCoursesString);
-        previousCourses.push(specificCourse);
-        localStorage.setItem('courses',JSON.stringify(previousCourses));
-        navigate('/checkout');
-    }
+
     return (
         
         <Container ref={targetRef} style={{ marginTop: "115px" }}>
@@ -54,7 +48,7 @@ const Details = () => {
                         <Card.Body>
 
                             <Card.Title style={{ textAlign: "center", fontSize: "35px", fontWeight: "bold" }}>${specificCourse.price}</Card.Title>
-                            <Link ><Button onClick={addCourse} style={{ width: "100%" }} variant="warning">Get Premium Access</Button></Link>
+                            <Link to={`/checkout/${specificCourse.id}`}><Button style={{ width: "100%" }} variant="warning">Get Premium Access</Button></Link>
 
                             <h5 className='mt-4'>This course includes</h5>
                             <p><FaBook className='me-3' /><span> Language - English</span></p>

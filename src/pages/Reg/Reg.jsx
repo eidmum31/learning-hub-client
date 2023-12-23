@@ -4,7 +4,7 @@ import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProviders';
 
 const Reg = () => {
-    const { createUser, updateUserProfile, verifyEmail } = useContext(AuthContext);
+    const { createUser, updateUserProfile, verifyEmail,logOut } = useContext(AuthContext);
     const navigate = useNavigate();
     const [error, setError] = useState(null);
     const [success, setSuccess] = useState(null);
@@ -16,7 +16,8 @@ const Reg = () => {
         const photoUrl = form.photo.value;
         const password = form.password.value;
         createUser(email, password)
-            .then(user => {
+            .then(u => {
+                logOut();
                 setSuccess(true);
                 verifyEmail()
                     .then(() => {
@@ -27,7 +28,7 @@ const Reg = () => {
                 .catch(err=>{
                     setError(err);
                     setSuccess(false);
-                    console.log("x");
+                   
                 })
                 updateUserProfile(photoUrl, name)
                     .then(() => {
@@ -35,15 +36,16 @@ const Reg = () => {
                         console.log("profile upated");
                     })
                     .catch(err=>{
-                        console.log("y");
+                        
                         setSuccess(false);
                         setError(err);
                     })
-
+                
+             
 
             })
             .catch(err => {
-                console.log(err);
+                
                 setSuccess(false);
                 setError(err);
             })

@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button, Container, Nav, NavDropdown, Navbar } from 'react-bootstrap';
 import learning from "../../../assets/learning.png";
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../providers/AuthProviders';
 const Header = () => {
+    const {user,logOut}=useContext(AuthContext);
+    
+    const handleLogOut=()=>{
+        logOut()
+        .then()
+        .catch()
+    }
+    
     return (
        
             <Navbar className='container' collapseOnSelect expand="lg" fixed='top'  data-bs-theme="dark" bg='dark'>
@@ -22,7 +31,12 @@ const Header = () => {
                             <Link className='text-decoration-none text-light'>Blog</Link>
                         </Nav>
                         <Nav className='ms-auto'>
-                        <Button variant="warning">Login</Button>
+                        {user&&<img className='me-2' src={user.photoURL} style={{height:"40px",width:"40px",borderRadius:"10px"}}></img>}
+                        {
+                            user?  <Button onClick={handleLogOut} variant="warning">Log Out</Button>:  <Link to={`/login`}><Button variant="warning">Login</Button></Link>
+                        }
+                      
+                      
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

@@ -17,6 +17,8 @@ import Details from "../pages/SpecificCourse/Details/Details";
 import Login from "../pages/Login/Login";
 import Reg from "../pages/Reg/Reg";
 import CheckoutLayout from "../layout/checkoutLayout";
+import Protected from "./Protected";
+import Checkout from "../pages/Checkout/Checkout";
 const router = createBrowserRouter([
     {
       path: "/",
@@ -72,8 +74,9 @@ const router = createBrowserRouter([
       ]
     },
     {
-      path:'/checkout',
-      element:<CheckoutLayout></CheckoutLayout>
+      path:'/checkout/:id',
+      element:<Protected><CheckoutLayout></CheckoutLayout></Protected>,
+      loader:({params})=>fetch(`http://127.0.0.1:8080/course/${params.id}`)
     }
   ]);
   export default router;

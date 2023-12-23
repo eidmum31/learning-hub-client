@@ -3,6 +3,8 @@ import { Button, Container, Nav, NavDropdown, Navbar } from 'react-bootstrap';
 import learning from "../../../assets/learning.png";
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProviders';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const Header = () => {
     const {user,logOut}=useContext(AuthContext);
     
@@ -31,7 +33,7 @@ const Header = () => {
                             <Link className='text-decoration-none text-light'>Blog</Link>
                         </Nav>
                         <Nav className='ms-auto'>
-                        {user&&<img className='me-2' src={user.photoURL} style={{height:"40px",width:"40px",borderRadius:"10px"}}></img>}
+                        {user&&<img onMouseOver={()=>toast(`Welcome ${user.displayName}`)} className='me-2' src={user.photoURL} style={{height:"40px",width:"40px",borderRadius:"10px"}}></img>}
                         {
                             user?  <Button onClick={handleLogOut} variant="warning">Log Out</Button>:  <Link to={`/login`}><Button variant="warning">Login</Button></Link>
                         }
@@ -40,6 +42,7 @@ const Header = () => {
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
+                <ToastContainer />
             </Navbar>
        
     );

@@ -33,6 +33,7 @@ const Header = () => {
                             <Link className='text-decoration-none text-light'>Blog</Link>
                         </Nav>
                         <Nav className='ms-auto'>
+                            
                         {user&&<img onMouseOver={()=>toast(`Welcome ${user.displayName}`)} className='me-2' src={user.photoURL} style={{height:"40px",width:"40px",borderRadius:"10px"}}></img>}
                         {
                             user?  <Button onClick={handleLogOut} variant="warning">Log Out</Button>:  <Link to={`/login`}><Button variant="warning">Login</Button></Link>

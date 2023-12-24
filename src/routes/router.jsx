@@ -19,6 +19,7 @@ import Reg from "../pages/Reg/Reg";
 import CheckoutLayout from "../layout/checkoutLayout";
 import Protected from "./Protected";
 import Checkout from "../pages/Checkout/Checkout";
+import Blog from "../pages/Blog/Blog";
 const router = createBrowserRouter([
     {
       path: "/",
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
         {
           path:"/reg",
           element:<Reg></Reg>
+        },
+        {
+          path:'/blog',
+          element:<Blog></Blog>
         }
   
       ]

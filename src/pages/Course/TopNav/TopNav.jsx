@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const TopNav = () => {
     const [categories, setCategories] = useState([]);
     useEffect(() => {
-        fetch("http://127.0.0.1:8080/categories")
+        fetch("https://learninghub-lx16.onrender.com/categories")
             .then(res => res.json())
             .then(data => setCategories(data));
     }, [])

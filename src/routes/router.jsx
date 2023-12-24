@@ -57,14 +57,14 @@ const router = createBrowserRouter([
             {
                 path:'/category',
                 element:<Category></Category>,
-                loader:()=>fetch(`http://127.0.0.1:8080/category/0`)
+                loader:()=>fetch(`https://learninghub-lx16.onrender.com/category/0`)
             }
             ,
 
             {
                 path:"/category/:id",
                 element:<Category></Category>,
-                loader:({params})=>fetch(`http://127.0.0.1:8080/category/${params.id}`)
+                loader:({params})=>fetch(`https://learninghub-lx16.onrender.com/category/${params.id}`)
             },
       
         ]
@@ -76,14 +76,14 @@ const router = createBrowserRouter([
         {
           path:'/course/:id',
           element:<Details></Details>,
-          loader:({params})=>fetch(`http://127.0.0.1:8080/course/${params.id}`)
+          loader:({params})=>fetch(`https://learninghub-lx16.onrender.com/course/${params.id}`)
         }
       ]
     },
     {
       path:'/checkout/:id',
       element:<Protected><CheckoutLayout></CheckoutLayout></Protected>,
-      loader:({params})=>fetch(`http://127.0.0.1:8080/course/${params.id}`)
+      loader:({params})=>fetch(`https://learninghub-lx16.onrender.com/course/${params.id}`)
     }
   ]);
   export default router;

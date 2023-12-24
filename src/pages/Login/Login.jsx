@@ -8,10 +8,19 @@ import 'react-toastify/dist/ReactToastify.css';
 const Login = () => {
     const [error, setError] = useState(null);
     const [success, setSuccess] = useState(null);
-    const { loginUser, user, loading,logOut } = useContext(AuthContext);
+    const { loginUser, user, loading,logOut,googleSignIn } = useContext(AuthContext);
     const location = useLocation();
     const dest = location?.state || `/`;
     const navigate = useNavigate();
+    const googleSign=()=>{
+        googleSignIn()
+        .then(()=>{
+            navigate(dest);
+        })
+        .catch()
+
+    
+    }
     const handleLogin = (event) => {
         event.preventDefault();
 
@@ -63,7 +72,7 @@ const Login = () => {
                 </Form>
                 <Row className='w-50 mx-auto mt-5'>
                     <Col md={6}>
-                        <Button style={{ width: "90%" }} variant="outline-secondary"><FaGoogle className='me-2' />Google</Button>
+                        <Button onClick={googleSign} style={{ width: "90%" }} variant="outline-secondary"><FaGoogle className='me-2' />Google</Button>
                     </Col>
                     <Col md={6}>
                         <Button style={{ width: "90%" }} variant="outline-secondary"><FaGithub className='me-2' />Github</Button>

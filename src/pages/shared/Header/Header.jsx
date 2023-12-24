@@ -30,10 +30,10 @@ const Header = () => {
                             <Link to={'/'} className='text-decoration-none ms-lg-5 text-light'>Home</Link>
                             <Link to={'/category/0'} className='text-decoration-none ms-lg-3 text-light'>Courses</Link>
                             <Link className='text-decoration-none mx-lg-3 text-light'>FAQ</Link>
-                            <Link className='text-decoration-none text-light'>Blog</Link>
+                            <Link to={`/blog`} className='text-decoration-none text-light'>Blog</Link>
                         </Nav>
                         <Nav className='ms-auto'>
-                            
+
                         {user&&<img onMouseOver={()=>toast(`Welcome ${user.displayName}`)} className='me-2' src={user.photoURL} style={{height:"40px",width:"40px",borderRadius:"10px"}}></img>}
                         {
                             user?  <Button onClick={handleLogOut} variant="warning">Log Out</Button>:  <Link to={`/login`}><Button variant="warning">Login</Button></Link>

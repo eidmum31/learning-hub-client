@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, Container, Nav, NavDropdown, Navbar } from 'react-bootstrap';
 import learning from "../../../assets/learning.png";
 import { Link } from 'react-router-dom';
@@ -7,7 +7,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 const Header = () => {
     const {user,logOut}=useContext(AuthContext);
-    
+    const [dark,setdark]=useState(false);
     const handleLogOut=()=>{
         logOut()
         .then()
@@ -38,8 +38,10 @@ const Header = () => {
                         {
                             user?  <Button onClick={handleLogOut} variant="warning">Log Out</Button>:  <Link to={`/login`}><Button variant="warning">Login</Button></Link>
                         }
-                      
-                      
+                        {dark?<Button className='ms-2' onClick={()=>{setdark(!dark)}} variant="warning">Default</Button>:
+                         <Button className='ms-2' onClick={()=>{setdark(!dark)}} variant="warning">Dark</Button>
+                        }
+                       
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

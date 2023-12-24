@@ -7,6 +7,7 @@ import { Outlet } from 'react-router-dom';
 import Course from '../pages/Course/Category/Category';
 import Banner from '../pages/shared/Banner/Banner';
 import TopNav from '../pages/Course/TopNav/TopNav';
+import Footer from '../pages/shared/Footer/Footer';
 
 const CourseLayout = () => {
     return (
@@ -16,6 +17,7 @@ const CourseLayout = () => {
             <Banner></Banner>
             <TopNav></TopNav>
             <Outlet></Outlet>
+            <Footer></Footer>
            
            </>
 

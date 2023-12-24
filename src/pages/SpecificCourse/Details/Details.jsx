@@ -13,7 +13,7 @@ const Details = () => {
     return (
         
         <Container ref={targetRef} style={{ marginTop: "115px" }}>
-            <Row className='bg-secondary text-light p-4'>
+            <Row style={{height:"90vh"}} className='bg-secondary text-light p-4'>
                 <Col lg={7}>
                     
                        <h2>{specificCourse.course_name}</h2>

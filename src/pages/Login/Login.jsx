@@ -8,12 +8,21 @@ import 'react-toastify/dist/ReactToastify.css';
 const Login = () => {
     const [error, setError] = useState(null);
     const [success, setSuccess] = useState(null);
-    const { loginUser, user, loading,logOut,googleSignIn } = useContext(AuthContext);
+    const { loginUser, user, loading,logOut,googleSignIn, githubSignIn } = useContext(AuthContext);
     const location = useLocation();
     const dest = location?.state || `/`;
     const navigate = useNavigate();
     const googleSign=()=>{
         googleSignIn()
+        .then(()=>{
+            navigate(dest);
+        })
+        .catch()
+
+    
+    }
+    const githubSign=()=>{
+        githubSignIn()
         .then(()=>{
             navigate(dest);
         })
@@ -75,7 +84,7 @@ const Login = () => {
                         <Button onClick={googleSign} style={{ width: "90%" }} variant="outline-secondary"><FaGoogle className='me-2' />Google</Button>
                     </Col>
                     <Col md={6}>
-                        <Button style={{ width: "90%" }} variant="outline-secondary"><FaGithub className='me-2' />Github</Button>
+                        <Button onClick={githubSign} style={{ width: "90%" }} variant="outline-secondary"><FaGithub className='me-2' />Github</Button>
                     </Col>
                 </Row>
                 <p className='text-center mt-3 pb-3'>Don't have an account? <Link to={`/reg`}>Register</Link></p>

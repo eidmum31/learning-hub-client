@@ -20,10 +20,12 @@ import CheckoutLayout from "../layout/checkoutLayout";
 import Protected from "./Protected";
 import Checkout from "../pages/Checkout/Checkout";
 import Blog from "../pages/Blog/Blog";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
 const router = createBrowserRouter([
     {
       path: "/",
       element: <MainLayout></MainLayout>,
+      errorElement:<ErrorPage></ErrorPage>,
       children:[
         {
             path:'/',

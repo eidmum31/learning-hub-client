@@ -17,6 +17,11 @@ Password : 123456
 - User can authenticate using google, github or email & paasword.
 - With verify the email user can not log in.
 
+## Technologies
+
+- Frontend (React, Js, Bootstrap)
+- Backend (NodeJs , Express)
+
 
 ## Live website Link
 
